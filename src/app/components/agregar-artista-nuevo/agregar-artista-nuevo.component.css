@@ -1,0 +1,122 @@
+/* FORMULARIO GENERAL */
+.formulario-artista {
+    width: 100%;
+    max-width: 900px;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+/* FORMULARIO HORIZONTAL */
+.formulario-artista-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: .7rem;
+    background: linear-gradient(135deg, #4874b3, #1f2937);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* GRUPO DE INPUT + ERROR */
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 180px;
+    min-width: 160px;
+    max-width: 200px;
+}
+
+/* INPUTS DE TEXTO Y FILE */
+input[type="text"],
+input[type="file"] {
+    padding: 8px;
+    height: 36px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f9fafb;
+    transition: border 0.2s ease;
+}
+
+input[type="file"] {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* MENSAJES DE ERROR */
+.error {
+    color: #ffc4c3;
+    font-size: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    line-height: 1rem;
+    min-height: 1.2rem;
+    /* 🔧 Esto reserva espacio sin empujar nada */
+    margin-top: 4px;
+}
+
+/* INPUTS INVÁLIDOS */
+.invalido {
+    border: 2px solid red !important;
+    background-color: #ffe6e6;
+}
+
+/* BOTÓN GENERAL */
+button {
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #e53935;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    height: fit-content;
+    align-self: flex-start;
+}
+
+/* BOTÓN HOVER */
+button:hover {
+    background-color: #ffffff;
+    color: #e53935;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+/* BOTÓN DESHABILITADO */
+button[disabled] {
+    background-color: #e53935;
+    color: white;
+    cursor: not-allowed;
+    box-shadow: 0 0 4px rgba(229, 57, 53, 0.6);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .formulario-artista-horizontal {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .campo-formulario,
+    input,
+    button {
+        width: 100%;
+        max-width: 100%;
+        font-size: 15px;
+    }
+
+    button {
+        align-self: stretch;
+    }
+}

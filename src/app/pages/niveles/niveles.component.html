@@ -1,0 +1,7 @@
+<h1 class="dashboard-title">Niveles de Escaneo</h1>
+
+<div class="dashboard-container">
+    <app-sensor-card *ngFor="let sensor of sensorData" [icon]="sensor.icon" [label]="sensor.label"
+        [value]="sensor.value">
+    </app-sensor-card>
+</div>

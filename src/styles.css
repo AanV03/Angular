@@ -1,0 +1,118 @@
+/* You can add global styles to this file, and also import other style files */
+/* ===== Reset and Base Setup ===== */
+
+:root {
+    --color-1: #4CAF50;
+    /* Verde */
+
+    --color-2: #2196F3;
+    /* Azul */
+
+    --color-3: #FF9800;
+    /* Naranja */
+
+    --color-4: #ffffff;
+    /* Texto blanco */
+
+    --color-5: #9c27b0;
+    /* Morado principal (Material Design) */
+    /*color morado*/
+
+    --gradient-bg: linear-gradient(135deg, #8cc2ff, #f3f8ff);
+    /* Azul pálido a blanco azulado */
+
+    /* Fondo general */
+    --font-family-1: 'Poppins',
+        sans-serif;
+    --border-radius-1: 8px;
+    --border-radius-2: 16px;
+    --shadow-1: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    background: var(--gradient-bg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.dashboard-title {
+    text-align: center;
+    padding: 1rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: var(--font-family-1);
+    background: linear-gradient(90deg, #2196F3, #6EC6FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    margin: 2rem auto;
+}
+
+/* ===== Container for Layout ===== */
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 24px;
+    justify-content: center;
+}
+
+/* ===== Sensor Data Card ===== */
+.sensor-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 180px;
+    transition: transform 0.2s ease;
+}
+
+.sensor-card:hover {
+    transform: translateY(-5px);
+}
+
+.sensor-card i {
+    color: #1976d2;
+    margin-bottom: 12px;
+}
+
+.sensor-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.sensor-card p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* colores de bg para la logica del cambio con botones */
+
+body.original-bg {
+    background: var(--gradient-bg);
+}
+
+body.verde-bg {
+    background: linear-gradient(135deg, #a8e6cf, #dcedc1);
+}
+
+body.morado-bg {
+    background: linear-gradient(135deg, #d1c4e9, #f3e5f5);
+}
+
+
+body.naranja-bg {
+    background: linear-gradient(135deg, #ffd3b6, #ffe0b2);
+}
+

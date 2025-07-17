@@ -1,0 +1,6 @@
+<h2>Iniciar sesión</h2>
+
+<form (ngSubmit)="login()" #loginForm="ngForm">
+    <input type="text" [(ngModel)]="usuario" name="usuario" placeholder="Tu nombre" required />
+    <button type="submit" [disabled]="!loginForm.form.valid">Entrar</button>
+</form>
