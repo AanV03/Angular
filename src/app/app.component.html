@@ -9,6 +9,20 @@
         <a routerLink="/niveles" routerLinkActive="activo">Niveles</a>
         <a routerLink="/botones" routerLinkActive="activo">Botones</a>
         <a routerLink="/artistas" routerLinkActive="activo">Artistas</a>
+
+        <!-- Usuario NO logueado -->
+        <ng-container *ngIf="!usuario">
+            <a routerLink="/login" class="login-link">Iniciar sesión</a>
+            <a routerLink="/register" class="register-link">Registrarse</a>
+        </ng-container>
+
+        <!-- Usuario logueado -->
+        <ng-container *ngIf="usuario">
+            <div class="navbar-usuario">
+                Bienvenido, {{ usuario }}
+                <button (click)="cerrarSesion()" class="logout-btn">Cerrar sesión</button>
+            </div>
+        </ng-container>
     </div>
 </nav>
 

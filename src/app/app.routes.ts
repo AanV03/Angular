@@ -5,6 +5,8 @@ import { BotonesComponent } from './pages/botones/botones.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { LoginComponent } from './pages/login/login.component';
 import { authGuard } from './guards/auth.guard';
+import { RegisterComponent } from './pages/register/register.component';
+
 
 export const routes: Routes = [
     {
@@ -20,8 +22,8 @@ export const routes: Routes = [
         component: BotonesComponent
     },
     {
-        path: 'artistas',
-        component: ArtistasComponent
+        path: 'register',
+        component: RegisterComponent
     },
     {
         path: 'login',

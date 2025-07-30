@@ -24,6 +24,12 @@
         <div *ngIf="mostrarError('portada')" class="error">
             ! La portada es obligatoria !
         </div>
+
+        <!-- Vista previa solo si hay imagen -->
+        <div *ngIf="formulario.get('portada')?.value" style="margin-top: 0.5rem;">
+            <img [src]="formulario.get('portada')?.value" alt="Vista previa" width="150"
+                style="border-radius: 8px; border: 1px solid #ccc;" />
+        </div>
     </div>
 
     <!-- Audio -->

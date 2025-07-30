@@ -26,13 +26,16 @@
 <div class="acciones-artistas">
     <!-- Este es tu nuevo componente con el mismo diseño -->
     <app-agregar-artista-nuevo (artistaAgregado)="actualizarListas()"></app-agregar-artista-nuevo>
-
-    <button (click)="borrarTodos()" class="btn-borrar-todo">Borrar todos los artistas</button>
-
 </div>
 
 <!-- TÍTULO: ARTISTAS NUEVOS -->
-<h2>Artistas Nuevos</h2>
+<div class="artistas-header">
+    <h2>Artistas Nuevos</h2>
+    <button (click)="borrarTodos()" class="btn-icono-borrar" title="Borrar todos los nuevos artistas">
+        <i class="bi bi-trash3-fill"></i>
+    </button>
+</div>
+
 <div class="tarjetas-grid">
     <div class="tarjeta" *ngFor="let artista of artistasNuevos">
         <img [src]="artista.portada" [alt]="artista.album" />

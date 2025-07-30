@@ -1,28 +1,17 @@
-/* FORMULARIO GENERAL */
-.formulario-artista {
-    width: 100%;
-    max-width: 900px;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    gap: 0.5rem;
-    flex: 1;
-}
-
-/* FORMULARIO HORIZONTAL */
+/* FORMULARIO HORIZONTAL MEJORADO */
 .formulario-artista-horizontal {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: .7rem;
+    align-items: center; 
+    justify-content: center;
+    gap: 0.9rem;
     background: linear-gradient(135deg, #4874b3, #1f2937);
-    padding: 1.5rem;
+    padding: 1.8rem;
     border-radius: 16px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
     width: 100%;
+    max-width: 1630px;
+    margin: 0 auto;
     box-sizing: border-box;
 }
 
@@ -32,19 +21,29 @@
     flex-direction: column;
     flex: 1 1 180px;
     min-width: 160px;
-    max-width: 200px;
+    max-width: 250px;
 }
 
 /* INPUTS DE TEXTO Y FILE */
 input[type="text"],
 input[type="file"] {
-    padding: 8px;
-    height: 36px;
-    font-size: 12px;
+    padding: 0.68rem 0.9rem;
+    height: auto;
+    font-size: 0.85rem;
+    /* antes 0.95rem */
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 9px;
     background-color: #f9fafb;
-    transition: border 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0 0 0 2.5px rgba(33, 150, 243, 0.2);
 }
 
 input[type="file"] {
@@ -52,53 +51,65 @@ input[type="file"] {
     cursor: pointer;
 }
 
+/* INPUTS INVÁLIDOS */
+.invalido {
+    border: 2px solid #e53935 !important;
+    background-color: #ffe6e6;
+}
+
 /* MENSAJES DE ERROR */
 .error {
     color: #ffc4c3;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-family: 'Poppins', sans-serif;
     word-wrap: break-word;
     line-height: 1rem;
     min-height: 1.2rem;
-    /* 🔧 Esto reserva espacio sin empujar nada */
     margin-top: 4px;
 }
 
-/* INPUTS INVÁLIDOS */
-.invalido {
-    border: 2px solid red !important;
-    background-color: #ffe6e6;
-}
-
-/* BOTÓN GENERAL */
-button {
-    padding: 10px 16px;
-    font-size: 14px;
-    font-weight: bold;
+/* BOTÓN SUBMIT */
+button[type="submit"] {
+    padding: 0.8rem 1.3rem;
+    font-size: 0.85rem;
+    font-weight: 600;
     color: white;
     background-color: #e53935;
     border: none;
-    border-radius: 6px;
+    border-radius: 9px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     white-space: nowrap;
-    height: fit-content;
-    align-self: flex-start;
+    align-self: center;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* BOTÓN HOVER */
-button:hover {
+button[type="submit"]:hover:not([disabled]) {
     background-color: #ffffff;
-    color: #e53935;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+    color: #7be535;
+    border: 1px solid #35e547;
+    transform: scale(1.03);
 }
 
 /* BOTÓN DESHABILITADO */
 button[disabled] {
     background-color: #e53935;
     color: white;
+    opacity: 0.6;
     cursor: not-allowed;
-    box-shadow: 0 0 4px rgba(229, 57, 53, 0.6);
+}
+
+/* VISTA PREVIA DE IMAGEN */
+.campo-formulario img {
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 9px;
+    border: 1px solid #ccc;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    margin-top: 0.5rem;
+    align-self: center;
 }
 
 /* RESPONSIVO */
@@ -113,7 +124,7 @@ button[disabled] {
     button {
         width: 100%;
         max-width: 100%;
-        font-size: 15px;
+        font-size: 1rem;
     }
 
     button {

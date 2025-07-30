@@ -53,6 +53,34 @@
     color: white;
 }
 
+.navbar-usuario {
+    margin-left: 1rem;
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logout-btn {
+    background: #e53935;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #ff6e6e;
+}
+
+.login-link {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
 /* === Responsive Navbar === */
 @media (max-width: 768px) {
     .navbar {

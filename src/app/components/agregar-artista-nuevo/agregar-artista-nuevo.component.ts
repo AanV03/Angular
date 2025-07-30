@@ -10,7 +10,6 @@ import { Artista, ArtistasDbService } from '../../services/artistas-db.service';
   templateUrl: './agregar-artista-nuevo.component.html',
   styleUrls: ['./agregar-artista-nuevo.component.css']
 })
-
 export class AgregarArtistaNuevoComponent {
   formulario: FormGroup;
   enviando = false;
@@ -51,6 +50,16 @@ export class AgregarArtistaNuevoComponent {
     if (!esImagen && !esAudio) {
       alert(tipo === 'portada' ? 'Solo se permiten imágenes' : 'Solo se permiten archivos de audio');
       return;
+    }
+
+    // se aplica solo el filtro a portada ya que la mayoria de audios pasaran 1MB
+    // lo cual rompe la logica en el caso de mi app
+    if (tipo === 'portada') {
+      const maxSize = 1 * 1024 * 1024; // 1MB
+      if (archivo.size > maxSize) {
+        alert('La imagen excede el tamaño máximo permitido (1MB).');
+        return;
+      }
     }
 
     const lector = new FileReader();
@@ -110,6 +119,8 @@ export class AgregarArtistaNuevoComponent {
     await this.artistasDB.agregar(artista);
     this.artistaAgregado.emit();
     this.formulario.reset();
+    this.formulario.markAsPristine();
+    this.formulario.markAsUntouched();
     this.submitted = false;
     this.enviando = false;
   }
