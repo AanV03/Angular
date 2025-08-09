@@ -1,0 +1,29 @@
+<nav class="navbar">
+    <div class="navbar-logo">AirGuard</div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="navbar-links">
+        <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+        <a routerLink="/niveles" routerLinkActive="activo">Niveles</a>
+        <a routerLink="/botones" routerLinkActive="activo">Botones</a>
+        <a routerLink="/artistas" routerLinkActive="activo">Artistas</a>
+
+        <!-- Usuario NO logueado -->
+        <ng-container *ngIf="!usuario">
+            <a routerLink="/login" class="login-link">Iniciar sesión</a>
+            <a routerLink="/register" class="register-link">Registrarse</a>
+        </ng-container>
+
+        <!-- Usuario logueado -->
+        <ng-container *ngIf="usuario">
+            <div class="navbar-usuario">
+                Bienvenido, {{ usuario }}
+                <button (click)="cerrarSesion()" class="logout-btn">Cerrar sesión</button>
+            </div>
+        </ng-container>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>

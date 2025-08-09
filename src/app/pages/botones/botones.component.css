@@ -1,0 +1,94 @@
+.btn-original {
+    background-color: var(--color-2);
+    color: var(--color-4);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--border-radius-1);
+    font-family: var(--font-family-1);
+    font-weight: 500;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-verde {
+    background-color: var(--color-1);
+    color: var(--color-4);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--border-radius-1);
+    font-family: var(--font-family-1);
+    font-weight: 500;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-morado {
+    background-color: var(--color-5);
+    /* morado bonito */
+    color: var(--color-4);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--border-radius-1);
+    font-family: var(--font-family-1);
+    font-weight: 500;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-naranja {
+    background-color: var(--color-3);
+    color: var(--color-4);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--border-radius-1);
+    font-family: var(--font-family-1);
+    font-weight: 500;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-original:hover,
+.btn-verde:hover,
+.btn-morado:hover,
+.btn-naranja:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.custom-box {
+    box-shadow: var(--shadow-1);
+    border-radius: var(--border-radius-2);
+    background-color: #fff;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    max-width: 600px;
+    font-family: var(--font-family-1);
+    text-align: center;
+}
+
+.botones-box {
+    padding: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.botones-titulo {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    font-weight: 600;
+    font-family: var(--font-family-1);
+}
+
+.botones-grupo {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 1rem 2rem;
+    margin-top: 1rem;
+}

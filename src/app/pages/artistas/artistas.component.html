@@ -1,0 +1,82 @@
+<!-- TÍTULO: ARTISTAS INICIALES -->
+
+<h2>Artistas Iniciales</h2>
+<div class="tarjetas-grid">
+    <div class="tarjeta" *ngFor="let artista of artistasLocales">
+        <img [src]="artista.portada" [alt]="artista.album" />
+        <h3>{{ artista.nombre }}</h3>
+        <p>{{ artista.album }}</p>
+
+        <audio #audioPlayer [src]="artista.audio" (timeupdate)="actualizarProgreso($event, artista)"
+            (ended)="finalizarAudio(artista)" hidden></audio>
+
+        <div class="mini-player">
+            <button class="play-btn" (click)="toggleAudio(artista, audioPlayer)">
+                {{ artista.isPlaying ? '⏸' : '▶' }}
+            </button>
+            <div class="barra-progreso">
+                <div class="relleno" [style.width.%]="artista.progreso || 0"></div>
+            </div>
+            <span class="tiempo">{{ artista.tiempoActual || '00:00' }}</span>
+        </div>
+    </div>
+</div>
+
+<!-- COMPONENT FORM + BOTÓN BORRAR -->
+<div class="acciones-artistas">
+    <!-- Este es tu nuevo componente con el mismo diseño -->
+    <app-agregar-artista-nuevo (artistaAgregado)="actualizarListas()"></app-agregar-artista-nuevo>
+</div>
+
+<!-- TÍTULO: ARTISTAS NUEVOS -->
+<div class="artistas-header">
+    <h2>Artistas Nuevos</h2>
+    <button (click)="borrarTodos()" class="btn-icono-borrar" title="Borrar todos los nuevos artistas">
+        <i class="bi bi-trash3-fill"></i>
+    </button>
+</div>
+
+<div class="tarjetas-grid">
+    <div class="tarjeta" *ngFor="let artista of artistasNuevos">
+        <img [src]="artista.portada" [alt]="artista.album" />
+
+        <!--  Modo edición -->
+        <div *ngIf="artistaEditandoId === artista.id; else vistaNormal">
+            <input [(ngModel)]="artista.nombre" placeholder="Nombre" />
+            <input [(ngModel)]="artista.album" placeholder="Álbum" />
+        </div>
+
+        <!--  Vista normal -->
+        <ng-template #vistaNormal>
+            <h3>{{ artista.nombre }}</h3>
+            <p>{{ artista.album }}</p>
+        </ng-template>
+
+        <!--  Mini Reproductor -->
+        <audio #audioPlayer [src]="artista.audio" (timeupdate)="actualizarProgreso($event, artista)"
+            (ended)="finalizarAudio(artista)" hidden></audio>
+
+        <div class="mini-player">
+            <button class="play-btn" (click)="toggleAudio(artista, audioPlayer)">
+                {{ artista.isPlaying ? '⏸' : '▶' }}
+            </button>
+            <div class="barra-progreso">
+                <div class="relleno" [style.width.%]="artista.progreso || 0"></div>
+            </div>
+            <span class="tiempo">{{ artista.tiempoActual || '00:00' }}</span>
+        </div>
+
+        <!--  Botones de acción -->
+        <div class="botones-artista">
+            <ng-container *ngIf="artistaEditandoId === artista.id; else accionesNormales">
+                <button class="btn guardar" (click)="guardarEdicion(artista)"> Guardar</button>
+                <button class="btn cancelar" (click)="cancelarEdicion()"> Cancelar</button>
+            </ng-container>
+
+            <ng-template #accionesNormales>
+                <button class="btn editar" (click)="empezarEdicion(artista)"> Editar</button>
+                <button class="btn eliminar" (click)="eliminarArtista(artista.id)"> Eliminar</button>
+            </ng-template>
+        </div>
+    </div>
+</div>

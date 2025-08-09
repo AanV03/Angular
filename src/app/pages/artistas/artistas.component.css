@@ -1,0 +1,288 @@
+/* Grid de tarjetas */
+.tarjetas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.2rem;
+    padding: 1.5rem;
+}
+
+/* Tarjetas */
+.tarjeta {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.8rem;
+}
+
+.tarjeta img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.tarjeta h2,
+.tarjeta h3 {
+    margin: 0.4rem 0 0.1rem;
+    font-size: 1rem;
+}
+
+.tarjeta p {
+    margin: 0;
+    color: #555;
+    font-size: 0.85rem;
+}
+
+/* Mini reproductor */
+.mini-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+}
+
+.play-btn {
+    font-size: 1rem;
+    cursor: pointer;
+    color: #444;
+    border: none;
+    background: none;
+    transition: transform 0.2s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.2);
+}
+
+.barra-progreso {
+    background-color: #ddd;
+    width: 80px;
+    height: 5px;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.barra-progreso .relleno {
+    height: 100%;
+    background-color: #2196f3;
+    transition: width 0.2s linear;
+}
+
+.tiempo {
+    font-size: 0.7rem;
+    color: #666;
+    min-width: 0;
+    text-align: right;
+}
+
+/* Contenedor del form de artistas */
+.acciones-artistas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1rem;
+    margin: 2rem auto;
+    max-width: 1630px;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+}
+
+.acciones-artistas::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #2196f3, #00bcd4);
+    border-radius: 2px;
+    margin-bottom: 40px;
+    margin-top: -20px;
+}
+
+/* Título general */
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1f2937;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Editar/Guardar botones */
+.botones-artista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+    align-items: center;
+}
+
+.botones-artista .btn {
+    width: 90%;
+    padding: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn.editar {
+    background-color: #1976d2;
+    color: white;
+}
+
+.btn.editar:hover {
+    background-color: #125ea8;
+}
+
+.btn.eliminar {
+    background-color: #e53935;
+    color: white;
+}
+
+.btn.eliminar:hover {
+    background-color: #b71c1c;
+}
+
+.btn.guardar {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn.guardar:hover {
+    background-color: #388e3c;
+}
+
+.btn.cancelar {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+.btn.cancelar:hover {
+    background-color: #757575;
+}
+
+/* Inputs en modo edición */
+.tarjeta input[type="text"] {
+    width: 90%;
+    padding: 8px 10px;
+    margin: 0.4rem auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: #f5f7fa;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+}
+
+.tarjeta input[type="text"]:focus {
+    border-color: #1976d2;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+/*  Encabezado de "Artistas Nuevos" */
+.artistas-header {
+    display: flex;
+    justify-content: center; /* centrado horizontal */
+    align-items: center;
+    gap: 0.75rem; /* espacio entre título e ícono */
+    max-width: 1630px;
+    margin: 2rem auto 1rem;
+    padding: 0 1.5rem;
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+.artistas-header h2 {
+    display: flex;
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.artistas-header::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 4px;
+    background: linear-gradient(90deg, #2196f3, #00bcd4);
+    border-radius: 2px;
+}
+
+
+/* Botón borrar todo */
+.btn-icono-borrar {
+    background-color: #e1403d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 0.6rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    height: 42px;
+    width: 42px;
+}
+
+.btn-icono-borrar:hover {
+    background-color: #ffffff;
+    color: #e1403d;
+    transform: scale(1.1);
+    border: 1px solid #e1403d;
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .acciones-artistas {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-borrar-todo {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem;
+        font-size: 15px;
+        margin-top: 1rem;
+    }
+
+    .artistas-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .artistas-header h2 {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-borrar-todo {
+        padding: 1rem;
+        font-size: 14px;
+    }
+}

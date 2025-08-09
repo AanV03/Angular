@@ -1,0 +1,112 @@
+/* === NAVBAR STYLES === */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1f2937;
+    /* Dark navy */
+    padding: 1rem 2rem;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #60a5fa;
+    /* Sky blue */
+}
+
+.navbar-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 4px 8px;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar-links a:hover,
+.navbar-links a.activo {
+    color: #60a5fa;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.navbar-usuario {
+    margin-left: 1rem;
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logout-btn {
+    background: #e53935;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #ff6e6e;
+}
+
+.login-link {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+/* === Responsive Navbar === */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 1rem;
+        background-color: #111827;
+        /* darker background */
+        border-radius: 8px;
+        padding: 1rem;
+    }
+
+    .menu-toggle:checked+.menu-icon+.navbar-links {
+        display: flex;
+    }
+
+    .navbar-links a {
+        padding: 0.5rem 0;
+    }
+}
